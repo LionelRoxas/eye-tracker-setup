@@ -27,19 +27,23 @@ abstract = {In this research, we take an HCI perspective on the opportunities pr
 }
 ```
 
+## ⚠️ Important: Python Version Requirements
+
+**This project requires Python 3.8 or 3.9** due to tobii-research package limitations. It does **NOT** work with Python 3.10+ or Apple Silicon (ARM64) Macs natively.
+
+**📖 See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed setup instructions and troubleshooting.**
+
 ## Pre-Requisites
 
-The following list is showing the set of dependencies for this project. Please, install and build in your machine the recommended versions.
+The following list shows the dependencies for this project. Please install the recommended versions:
 
-List of dependencies for this project:
+- [Git](https://git-scm.com/) (>= v2.20)
 
-- [Git](https://git-scm.com/) (>= [v2.20](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.20.1.txt))
+- **[Python 3.9](https://www.python.org/downloads/)** (Required - Python 3.8 or 3.9 only, NOT 3.10+)
 
-- [Python](https://www.python.org/) (>= [v2.7](https://docs.python.org/2/))
+- [Setuptools](https://pypi.org/project/setuptools/) (>= v40.8)
 
-- [Setuptools](https://pypi.org/project/setuptools/) (>= [v40.8](https://pypi.org/project/setuptools/40.8.0/))
-
-- [Tobii Research](https://pypi.org/project/tobii-research/) (>= [v1.6](https://pypi.org/project/tobii-research/1.6.1/))
+- [Tobii Research](https://pypi.org/project/tobii-research/) (>= v1.6, < v2.0)
 
 ### Analytical Use
 
@@ -69,37 +73,54 @@ cd eye-tracker-setup/
 
 ### Install
 
-The installation guidelines are as follows. Please, be sure that you follow it correctly.
+**IMPORTANT:** The installation requires Python 3.9. See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed instructions.
 
-2.1. Run the following command to install the [library](http://docs.python-requests.org/en/master/user/install/#install) using [pip](https://pypi.org/project/pip/):
+2.1. Create a virtual environment with Python 3.9:
 
-#### On Linux or OS X
+```bash
+# On Linux or macOS
+python3.9 -m venv .venv39
+source .venv39/bin/activate
 
-```
-pip install -U pip setuptools
-pip install tobii-research
-```
-
-#### On Windows
-
-```
-python -m pip install -U pip setuptools
-pip install tobii-research
+# On Windows
+python3.9 -m venv .venv39
+.venv39\Scripts\activate
 ```
 
-2.2. Follow the next step;
+2.2. Install dependencies using pip:
+
+```bash
+pip install --upgrade pip setuptools
+pip install -r requirements.txt
+```
+
+**Apple Silicon (M1/M2/M3) Mac Users:** You need to use Rosetta 2 and x86_64 Python. See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed instructions.
+
+2.3. Follow the next step;
 
 ### Run
 
 The running guidelines are as follows. Please, be sure that you follow it correctly.
 
-3.1. Run the sample using the following command:
+3.1. Make sure your virtual environment is activated:
 
-```
-python2 src/core/main.py
+```bash
+# On Linux or macOS
+source .venv39/bin/activate
+
+# On Windows
+.venv39\Scripts\activate
 ```
 
-3.2. Enjoy our source code!
+3.2. Run the sample using the following command:
+
+```bash
+python src/core/main.py
+```
+
+3.3. Enjoy our source code!
+
+**Troubleshooting:** If you encounter errors, see [SETUP_GUIDE.md](SETUP_GUIDE.md) for solutions.
 
 ### Notebooks
 

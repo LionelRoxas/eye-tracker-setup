@@ -94,7 +94,7 @@ class TobiiHelper:
             # create eyetracker object
             self.eyetracker = tobii.EyeTracker(address)
         # if serial number is not given as a string
-        elif not isinstance(serialString, basestring):
+        elif not isinstance(serialString, str):
             raise TypeError("Serial number must be formatted as a string.")        
         # if serial number is given as a string
         else:    
@@ -183,7 +183,7 @@ class TobiiHelper:
             thisMon.saveMon()  # save monitor calibration
             self.win = thisMon
         # if serial number is not given as a string
-        elif not isinstance(nameString, basestring):
+        elif not isinstance(nameString, str):
             raise TypeError("Monitor name must be formatted as a string.")            
         # if serial number is given as a string
         else:
